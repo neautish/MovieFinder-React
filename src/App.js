@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from "react";
+
+import Header from "./components/Header";
+import Movies from "./components/Movies";
 import './App.css';
 
+
 function App() {
+  const [searchedMovies, setSearchedMovies] = useState([]);
+  const [inputTerm, setInputTerm] = useState('')
+  const moviesFromSearch = (searchedMoviesArr, inputTerm) => {
+    setSearchedMovies(searchedMoviesArr);
+    setInputTerm(inputTerm);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Header onSearchMovies={moviesFromSearch} />
+      <Movies searchedMovies={searchedMovies} inputTerm={inputTerm} />
+    </React.Fragment>
   );
 }
 

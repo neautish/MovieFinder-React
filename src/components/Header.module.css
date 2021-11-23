@@ -1,0 +1,16 @@
+.header {
+    padding: .5rem 2.5rem;
+    background-color: darkcyan;
+}
+
+.main_nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-weight: 800;
+}
