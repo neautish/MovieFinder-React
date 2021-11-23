@@ -51,10 +51,12 @@
 }
 
 .movie_details__score {
-    background-color: orange;
     padding: .3rem .5rem;
     border-radius: 3px;
     margin-left: .5rem;
+    border: 1px solid darkcyan;
+    box-shadow: 0 0 1px darkcyan;
+    font-weight: bold;
 }
 
 .img {
