@@ -17,6 +17,7 @@ const Search = (props) => {
         fetch(SEARCH_API + enteredInput)
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 props.onSearchMovie(data.results, enteredInput)
             });
 
