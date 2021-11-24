@@ -4,5 +4,3 @@
 -  API Calls
 -  Search
 -  Movie Info
-
-API's
