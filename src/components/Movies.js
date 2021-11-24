@@ -43,6 +43,9 @@ const Movies = (props) => {
     }, [])
     useEffect(() => {
         setMovies(props.searchedMovies);
+        if (props.searchedMovies.length > 0) {
+            document.querySelector('#resultTerm').style.display = 'block';
+        }
 
         return () => {
             setMovies([]);
@@ -50,19 +53,22 @@ const Movies = (props) => {
     }, [props.searchedMovies])
 
     return (
-        <div className={Classes.movies}>
-            {movies.length <= 0 ? <span>No results for: <strong>{props.inputTerm}</strong></span> :
-                movies.map(movie => (
-                    <Movie
-                        title={movie.title}
-                        overview={movie.overview}
-                        poster={movie.poster_path ? (IMAGE_API + movie.poster_path) : NoImage}
-                        score={movie.vote_average}
-                        key={movie.id}
-                    />
-                ))}
-            <img className={Classes.loading_icon} src={LoadingIcon} alt="loading icon" id="loadingIcon" />
-        </div>
+        <>
+            <span id="resultTerm" style={{ display: 'none', margin: '1rem 2rem' }}>results for: <strong>{props.inputTerm}</strong></span>
+            <div className={Classes.movies}>
+                {movies.length == 0 ? <span>No results for: <strong>{props.inputTerm}</strong></span> :
+                    movies.map(movie => (
+                        <Movie
+                            title={movie.title}
+                            overview={movie.overview}
+                            poster={movie.poster_path ? (IMAGE_API + movie.poster_path) : NoImage}
+                            score={movie.vote_average}
+                            key={movie.id}
+                        />
+                    ))}
+                <img className={Classes.loading_icon} src={LoadingIcon} alt="loading icon" id="loadingIcon" />
+            </div>
+        </>
     );
 };
 
