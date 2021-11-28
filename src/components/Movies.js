@@ -56,7 +56,7 @@ const Movies = (props) => {
         <>
             <span id="resultTerm" style={{ display: 'none', margin: '1rem 2rem' }}>results for: <strong>{props.inputTerm}</strong></span>
             <div className={Classes.movies}>
-                {movies.length == 0 ? <span>No results for: <strong>{props.inputTerm}</strong></span> :
+                {movies.length === 0 ? <span>No results for: <strong>{props.inputTerm}</strong></span> :
                     movies.map(movie => (
                         <Movie
                             title={movie.title}
